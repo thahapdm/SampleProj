@@ -1,0 +1,11 @@
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\bin\Debug\SampleApplicationObjects.dll.config
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\bin\Debug\SampleApplicationObjects.dll
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\bin\Debug\SampleApplicationObjects.pdb
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\bin\Debug\EntityFramework.dll
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\bin\Debug\EntityFramework.SqlServer.dll
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\bin\Debug\EntityFramework.xml
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\bin\Debug\EntityFramework.SqlServer.xml
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\obj\Debug\SampleApplicationObjects.csproj.CoreCompileInputs.cache
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\obj\Debug\SampleApplicationObjects.csproj.CopyComplete
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\obj\Debug\SampleApplicationObjects.dll
+E:\2017 Projects\SampleApplication\SampleApplicationObjects\obj\Debug\SampleApplicationObjects.pdb

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SampleDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="M_DeptTable">
+    <Key>
+      <PropertyRef Name="DeptId" />
+    </Key>
+    <Property Name="DeptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="M_StudentTable" Relationship="Self.FK_M_StudentTable_M_DeptTable" FromRole="M_DeptTable" ToRole="M_StudentTable" />
+  </EntityType>
+  <EntityType Name="M_StudentTable">
+    <Key>
+      <PropertyRef Name="StudId" />
+    </Key>
+    <Property Name="StudId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptId" Type="Int32" Nullable="false" />
+    <Property Name="StudCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="M_DeptTable" Relationship="Self.FK_M_StudentTable_M_DeptTable" FromRole="M_StudentTable" ToRole="M_DeptTable" />
+  </EntityType>
+  <Association Name="FK_M_StudentTable_M_DeptTable">
+    <End Role="M_DeptTable" Type="Self.M_DeptTable" Multiplicity="1" />
+    <End Role="M_StudentTable" Type="Self.M_StudentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_DeptTable">
+        <PropertyRef Name="DeptId" />
+      </Principal>
+      <Dependent Role="M_StudentTable">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SampleDataBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="M_DeptTable" EntityType="Self.M_DeptTable" />
+    <EntitySet Name="M_StudentTable" EntityType="Self.M_StudentTable" />
+    <AssociationSet Name="FK_M_StudentTable_M_DeptTable" Association="Self.FK_M_StudentTable_M_DeptTable">
+      <End Role="M_DeptTable" EntitySet="M_DeptTable" />
+      <End Role="M_StudentTable" EntitySet="M_StudentTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

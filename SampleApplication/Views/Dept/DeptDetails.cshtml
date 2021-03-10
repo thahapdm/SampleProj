@@ -1,0 +1,252 @@
+﻿
+<script>
+
+    $(document).ready(function () {
+        BindDeprtments();
+        
+    });
+
+    function BindDeprtments() {
+        $("[id$='tblData'] tbody tr").remove();
+        var ActionData = {};
+        var Jdata = JSON.stringify(ActionData);
+        $.ajax({
+            url: '/Dept/GetDeptList',
+            data: Jdata,
+            type: 'GET',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+
+            success: function (data) {
+                
+                var Slno = 1;
+                $.each(data, function (key, value) {
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td>" + Slno + "</td>");
+                    tr.append("<td>" + value.DeptCode + "</td>");
+                    tr.append("<td>" + value.DeptName + "</td>");
+                    tr.append("<td> <button type='submit' onclick='return StudentDetails(" + value.DeptId + ");' class='btn btn-info  btn-default '>View</button></td>");
+                    tr.append("<td> <button type='submit' onclick='return EditDepartment(" + value.DeptId + ");' class='btn btn-info  btn-default '>Edit</button></td>");
+                    Slno = Slno + 1;
+
+                    $('#tblData').append(tr);
+                });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+        });
+
+    }
+    function StudentDetails(DeptID) {
+        $("#StudentDetails").modal();
+        BindStudentDetails(DeptID);
+        return false;
+    }
+
+    function EditDepartment(DeptID) {
+
+        $("#DeptEdit").modal();
+        $("#StudentId").val(DeptID);
+        GetDepartmentValues(DeptID);
+        return false;
+    }
+
+
+    function GetDepartmentValues(DeptId) {
+        var ActionData = {};
+        ActionData.DeptId = DeptId;
+        var Jdata = JSON.stringify(ActionData);
+        $.ajax({
+            url: '/Dept/GetDepartment',
+            data: { DeptId: DeptId },
+            type: 'GET',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+
+            success: function (data) {
+
+               
+                $.each(data, function (key, value) {
+                    $("#txtCode").val(value.DeptCode);
+                    $("#txtName").val(value.DeptName);
+                });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+        });
+
+    }
+    function BindStudentDetails(DeptId) {
+        $("[id$='tblStudData'] tbody tr").remove();
+       
+        var ActionData = {};
+        ActionData.DeptId = DeptId;
+        var Jdata = JSON.stringify(ActionData);
+        $.ajax({
+            url: '/Dept/GetStudentList',
+            data: { DeptId: DeptId },
+            type: 'GET',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+
+            success: function (data) {
+
+                var Slno = 1;
+                $.each(data, function (key, value) {
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td>" + Slno + "</td>");
+                    tr.append("<td>" + value.StudCode + "</td>");
+                    tr.append("<td>" + value.Name + "</td>");
+                    Slno = Slno + 1;
+
+                    $('#tblStudData').append(tr);
+                });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+        });
+
+    }
+
+    function SaveDepartments() {
+        var ActionData = {};
+        ActionData.DeptId = $("#StudentId").val();
+        ActionData.DeptCode = $("#txtCode").val();
+        ActionData.DeptName = $("#txtName").val();
+        var Jdata = JSON.stringify(ActionData);
+        $.ajax({
+            url: '/Dept/SavedDepartments',
+            data: '{DepartmentObj: ' + Jdata + '}',
+            type: 'POST',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+
+            success: function (data) {
+
+                
+                alert('Saved Succesfully');
+                $("#BtnEditClose").click();
+                //jAlert('aved Succesfully', 'Information', function (r) {
+                //    if (r) {  }
+                //});
+                BindDeprtments();
+               
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+        });
+
+        return false;
+    }
+</script>
+<div class="row " style="padding:10px!important">
+    <table id="tblData" class="table table-striped table-bordered dt-responsive nowrap">
+        <thead>
+            <tr>
+                <th style="width:10%">SlNo </th>
+                <th style="width:10%">Code</th>
+                <th style="width:40%">Name</th>
+                <th style="width:5%">View</th>
+                <th style="width:5%">Edit</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="StudentDetails" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header  Popupheader" style="background-color: #3c8dbc; height: 40px; color: White;line-height: 30px;  text-align: center; padding :10px; font-weight: bold; font-size:14px; text-align:center;vertical-align:middle; ">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                Student
+            </div>
+            <div class="modal-body">
+
+
+
+
+                <div class="row " style="padding:10px!important">
+
+                    <table id="tblStudData" class="table table-striped table-bordered dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th style="width:10%">SlNo </th>
+                                <th style="width:20%">Code</th>
+                                <th style="width:40%">Name</th>
+
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="DeptEdit" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header  Popupheader" style="background-color: #3c8dbc; height: 40px; color: White;line-height: 30px;  text-align: center; padding :10px; font-weight: bold; font-size:14px; text-align:center;vertical-align:middle; ">
+                <button type="button" id="BtnEditClose" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                Department Edit
+            </div>
+            <div class="modal-body">
+
+
+
+              
+                    <div class="row " style="padding:10px!important">
+
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="txtCode" class="col-sm-4 control-label"> Code</label>
+                                <div class="col-sm-8">
+                                    <input id="txtCode" name="Code" class="form-control" placeholder="Code" type="text" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row " style="padding:10px!important" >
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="txtName" class="col-sm-4 control-label"> Name</label>
+                            <div class="col-sm-8">
+                                <input id="txtName" name="Name" class="form-control" placeholder="Name" type="text" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row " style="padding:10px!important">
+                    <div class="col-xs-6">
+                    </div><div class="col-xs-6">
+                        <input id="btnsubmit"  onclick='return SaveDepartments();' class='btn btn-info  btn-default' type="button" value="Save" />
+                    </div>
+                </div>
+              
+                <div class="modal-footer">
+                    @Html.Hidden("StudentId");
+                </div>
+                </div>
+            </div>
+            </div>
+</div>
+

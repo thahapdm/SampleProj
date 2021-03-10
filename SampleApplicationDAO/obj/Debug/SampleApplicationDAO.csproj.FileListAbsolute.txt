@@ -1,0 +1,15 @@
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\SampleApplicationDAO.dll
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\SampleApplicationDAO.pdb
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\obj\Debug\SampleApplicationDAO.csprojAssemblyReference.cache
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\obj\Debug\SampleApplicationDAO.csproj.CoreCompileInputs.cache
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\obj\Debug\SampleApplicationDAO.dll
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\obj\Debug\SampleApplicationDAO.pdb
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\SampleApplicationObjects.dll
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\EntityFramework.dll
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\SampleApplicationObjects.pdb
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\SampleApplicationObjects.dll.config
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\EntityFramework.xml
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\obj\Debug\SampleApplicationDAO.csproj.CopyComplete
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\SampleApplicationDAO.dll.config
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\EntityFramework.SqlServer.dll
+E:\2017 Projects\SampleApplication\SampleApplicationDAO\bin\Debug\EntityFramework.SqlServer.xml

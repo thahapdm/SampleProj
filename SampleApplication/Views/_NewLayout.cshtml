@@ -1,0 +1,188 @@
+﻿<html>
+<head runat="server">
+    <title></title>
+    <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Others")
+    @{ var imagePath = @"~/Content/img/profile.sm.jpg"; }
+</head>
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse" style="padding-top:3px!important;"  >
+        <div class="wrapper">
+        <form id="form1" runat="server">
+            <header class="main-header">
+                <a href="#" class="logo">
+                    <span class="logo-mini"><b>SM</b></span>
+                    <span class="logo-lg"><b>Sample</b> Module</span>
+                </a>
+                <nav class="navbar navbar-static-top">
+                  
+                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <!-- Messages: style can be found in dropdown.less-->
+                            <li class="dropdown messages-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="label label-success"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="header">You have No messages</li>
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            
+
+                                        </ul>
+                                    </li>
+                                    <li class="footer"><a href="#"></a></li>
+                                </ul>
+                            </li>
+                            <!-- Notifications: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell-o"></i>
+                                    <span class="label label-warning"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="header">You have 0 notifications</li>
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                           
+                                        </ul>
+                                    </li>
+                                    <li class="footer"><a href="#"></a></li>
+                                </ul>
+                            </li>
+                          
+                            <li class="dropdown tasks-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-flag-o"></i>
+                                    <span class="label label-danger"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="header">You have No tasks</li>
+                                    <li>
+                                     
+                                        <ul class="menu">
+                                           
+                                        </ul>
+                                    </li>
+                                    <li class="footer">
+                                        <a href="#"></a>
+                                    </li>
+                                </ul>
+                            </li>
+                          
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                   
+                                    <span class="hidden-xs">    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header" style="background-color:#ffffff!important;max-height:105px!important">
+                                        <!-- <img  class="img-circle" alt="User Image"> -->
+
+
+
+                                        <br />
+                                        <small> </small>
+                                        <br />
+
+
+                                    </li>
+                                    <!-- Menu Body -->
+
+
+                                </ul>
+                            </li>
+                            <!-- Control Sidebar Toggle Button -->
+                            <li>
+
+                                <a href='' title="Home"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li>
+                                <!--    <asp:Literal ID="LtrPasswordChangeButton" runat="server" />-->
+                                <a href='' title='Password Change'><i class='fa fa-wrench'></i></a>
+                            </li>
+                            <li>
+
+
+                                <a href='' title='Sign Off'><i class='fa fa-sign-out'></i></a>
+
+                            </li>
+
+
+                            <li>
+                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                           
+                        </div>
+                        <div class="pull-left info">
+                            <p> </p>
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                    
+
+                    <div class="input-group">
+                        
+                    </div>
+
+                     <ul class="sidebar-menu" data-widget="tree">
+                        <li class="header"></li>
+                      
+                     
+                    </ul>
+                </section>
+               
+            </aside>
+
+
+            <div class="content-wrapper" style="min-height:500px!important;" >
+                @RenderBody();
+            </div>
+
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 1.0.0
+                </div>
+                <strong>Copyright &copy; 2020-2020 <a href="#"></a>.</strong> All rights
+                reserved.
+            </footer>
+
+            <aside class="control-sidebar control-sidebar-dark">
+              
+                <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                    <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+                </ul>
+
+            </aside>
+
+        </form>
+    </div>
+    </body>
+</html>

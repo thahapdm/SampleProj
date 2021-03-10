@@ -1,0 +1,66 @@
+#popup_container {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #FFF;
+	border: solid 3px #00a7d4;
+	color: rgb(11, 11, 12);
+	/*-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;*/
+	border-radius: 8px;
+	z-index:10000000008  !important;
+}
+
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.75em;
+	color: #666;
+	background: url(AlertImages/title.gif) top repeat-x #CCC;
+	border: solid 1px #FFF;
+	border-bottom: solid 1px #999;
+	cursor: default;
+	padding: 0em;
+	margin: 0em;
+}
+
+#popup_content {
+	background: 16px 16px no-repeat url(AlertImages/info.gif);
+	padding: 1em 1.75em;
+	margin: 0em;
+}
+
+#popup_content.alert {
+	background-image: url(AlertImages/info.gif);
+}
+
+#popup_content.confirm {
+	background-image: url(AlertImages/important.gif);
+}
+
+#popup_content.prompt {
+	background-image: url(AlertImages/help.gif);
+}
+
+#popup_message {
+	padding-left: 48px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
+#popup_cancel
+{
+    border: solid 1px #00a7d4;
+}
+#popup_ok
+{
+    border: solid 1px #00a7d4;
+}
